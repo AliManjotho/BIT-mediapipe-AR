@@ -64,3 +64,25 @@
 14.  Download and install OpenCV 3.4.10 at C:\opencv.
     
      https://opencv.org/releases/
+
+15.  Set Android SDK and NDK paths in environment variables.
+
+     ANDROID_HOME=C:\Users\Ali\AppData\Local\Android\Sdk
+     ANDROID_NDK_HOME=C:\Users\Ali\AppData\Local\Android\Sdk\ndk
+
+16.  Append WORKSPACE file in root directory with:
+
+     android_sdk_repository(name="androidsdk")
+
+     android_ndk_repository(name="androidndk")
+	
+	
+17.  Build android apk (BIT-AR).
+
+     bazel build -c opt --config=android_arm64 --action_env PYTHON_BIN_PATH="C://Users//Ali//AppData//Local//Programs//Python//Python310//python.exe" mediapipe/examples/android/src/java/com/google/mediapipe/apps/posetrackinggpu:posetrackinggpu
+	 
+	 
+18.  Push Bit-AR.apk to device.
+
+     adb install bazel-bin/mediapipe/examples/android/src/java/com/google/mediapipe/apps/posetrackinggpu/posetrackinggpu.apk
+
